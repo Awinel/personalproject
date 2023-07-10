@@ -1,3 +1,5 @@
+import { loader } from "./utils.js";
+
 export function renderloader() {
     const headerSelector = ".main-header";
     const headerPath = "./partials/header.html";
@@ -11,10 +13,4 @@ export function renderloader() {
     loader(headerPath, headerSelector);
     loader(footerPath, footerSelector);
     loader(navPath, navSelector);
-}
-
-async function loader(path, selector) {
-    const element = await fetch(path);
-    const text = await element.text();
-    document.querySelector(selector).innerHTML = text;
 }
