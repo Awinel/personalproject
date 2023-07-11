@@ -118,20 +118,20 @@ a {
     
     .nav-menu {
         position: fixed;
-        top: 14%;
+        top: 73px;
         left:-100%;
         width: 40%;
-        height: 80%;
+        height: auto;
         flex-direction: column;
         transition: 1s ease-in-out;
         justify-content: start;
     }
 
     .nav-menu.active {
-        top: 14%;
+        top: 12%;
         left: 0;
         width: 40%;
-        height: 80%;
+        height: auto;
         background-color: var(--color-secondary);
         justify-content: start;
     }
