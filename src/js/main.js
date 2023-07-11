@@ -1,6 +1,6 @@
 import { toggleMenu } from "./hamburguerBtn.js";
-import { renderloader } from "./headerFooter.js";
+import { templateLoader } from "./templateloader.js";
 
 
-renderloader();
+templateLoader();
 toggleMenu();

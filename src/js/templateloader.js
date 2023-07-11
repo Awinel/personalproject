@@ -20,12 +20,12 @@ export function templateLoader() {
     const foodPath = "/personalproject/src/covers/food-cover.html";
 
     const coverEl = document.querySelector(".covers");
-    if (coverEl) {
+  if (coverEl) {
         loadHTML(excercisePath, coverEl);
         loadHTML(caloriesPath, coverEl);
         loadHTML(foodPath, coverEl);
     } else {
             return;
         }
-    
+  
 }
