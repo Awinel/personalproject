@@ -118,7 +118,7 @@ a {
     
     .nav-menu {
         position: fixed;
-        top: 14%;
+        top: 12%;
         left:-100%;
         width: 40%;
         height: 80%;
@@ -128,7 +128,7 @@ a {
     }
 
     .nav-menu.active {
-        top: 14%;
+        top: 12%;
         left: 0;
         width: 40%;
         height: 80%;
