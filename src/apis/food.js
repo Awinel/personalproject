@@ -1,5 +1,3 @@
-import { foodForm } from "./foodchoise.js";
-
 const path = "https://api.api-ninjas.com/v1/nutrition"
 const key = "Opjf4UmSnedi8gvRKfSAPw==7K6UfFnEz00Q1kdX"
 
@@ -28,7 +26,3 @@ export async function getFoodData(foodName) {
 // getFoodData("apple").then(data => console.log(data.items[0].serving_size));
 // getFoodData("apple").then(data => console.log(data.items[0].serving_unit));
 // getFoodData("apple").then(data => console.log(data.items[0].brand_name));
-
-
-
-foodForm();
