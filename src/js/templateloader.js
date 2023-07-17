@@ -16,7 +16,7 @@ export function templateLoader() {
 
 
     const excercisePath = "/personalproject/src/covers/exercise-cover.html";
-    const caloriesPath = "/personalproject/src/covers/calories-cover.html";
+    const caloriesPath = "/personalproject/src/covers/nutritionalinfo-cover.html";
     const foodPath = "/personalproject/src/covers/food-cover.html";
 
     const coverEl = document.querySelector(".covers");

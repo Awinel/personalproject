@@ -38,6 +38,6 @@ import { getFoodData } from "./food.js";
 function foodInformation(foodName) {
     getFoodData(foodName).then(data => {
         console.log(data);
-
+        
 });
 }
