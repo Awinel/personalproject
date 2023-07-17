@@ -19,3 +19,20 @@ export function loadHTML(filePath, element) {
     };
     xhr.send();
 }
+
+export function getLocalStorage(key) {
+    let value = localStorage.getItem(key);
+    if (value) {
+        value = JSON.parse(value);
+    }
+    return value;
+}
+
+export function setLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+
+    // setLocalStorage('myKey', {myValue: 'value'});
+
+    let myValue = getLocalStorage('myKey');
+
+}
