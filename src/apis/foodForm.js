@@ -21,7 +21,6 @@ export async function setupFoodForm() {
   formContainer.innerHTML = foodForm();
 
   const foodEatenDiv = await getElement('.foodEaten');
-
   let foodArray = getLocalStorage("ateFood") || [];
   for (const food of foodArray) {
     const paragraph = document.createElement('p');

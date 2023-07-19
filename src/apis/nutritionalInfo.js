@@ -1,45 +1,13 @@
 import { divCreator, getLocalStorage, intergrator } from "../js/utils.js";
 import { getFoodData } from "./food.js";
 
-// function food() {
-//     const foodData = getLocalStorage("ateFood");
-//     const foodNames = foodData.map(food => food);
-//     const promises = foodNames.map(foodName => getFoodData(foodName));
-//     Promise.all(promises).then(data => {
-//         console.log(data);
-//         for (const food of data) {
-//             intergrator(".foodName", food[0].name);
-//             intergrator(".foodCalories", food[0].calories);
-//             intergrator(".foodFatTotalG", food[0].fat_total_g);
-//             intergrator(".foodProteinG", food[0].protein_g);
-//             intergrator(".foodCarboMg", food[0].carbohydrates_total_g);
-//             intergrator(".foodServingSizeG", food[0].serving_size_g);
-//             intergrator(".foodSugarG", food[0].sugar_g);
-//         }
-//     });
-// }
-
-
-// function nutritionalInfo() {
-//     const classNames = [
-//         "foodName",
-//         "foodCalories",
-//         "foodFatTotalG",
-//         "foodProteinG",
-//         "foodCarboMg",
-//         "foodServingSizeG",
-//         "foodSugarG"
-//     ];
-      
-//     for (const className of classNames) {
-//         divCreator(className, ".nutritional-container");
-//     }
-    
-    
-// }
-
 async function food() {
     const foodData = getLocalStorage("ateFood");
+    if (!foodData) {
+        divCreator("errorHandler", ".nutritional-container")
+        document.querySelector(".errorHandler").textContent = "You have not eaten food, please eat something to display the nutritional information";
+        return;
+    }
     const foodNames = foodData.map(food => food);
     const promises = foodNames.map(food => getFoodData(food));
     const allFoodData = await Promise.all(promises);
@@ -60,6 +28,12 @@ async function food() {
 function nutritionalInfo() {
     const container = document.querySelector(".nutritional-container");
     const foodData = getLocalStorage("ateFood");
+    if (!foodData) {
+        // Handle the case where foodData is null
+        // For example, you could display a message to the user
+        console.log("No food data found");
+        return;
+    }
     for (let i = 0; i < foodData.length; i++) {
         const classNames = [
             `foodName${i}`,
@@ -86,34 +60,3 @@ export function nutrition() {
 
 
 }
-
-// const nutritionalContainer = document.querySelector("#nutritional-container");
-// const foodName = document.querySelector("").value;
-// const foodData = await getFoodData(foodName);
-// const foodNameElement = document.querySelector(".foodName");
-// const foodCaloriesElement = document.querySelector(".foodCalories");
-// const foodFatElement = document.querySelector(".foodFat");
-// const foodCarbohydratesElement = document.querySelector(".foodCarbohydrates");
-// const foodProteinElement = document.querySelector(".foodProtein");
-// const foodSugarElement = document.querySelector(".foodSugar");
-// const foodFiberElement = document.querySelector(".foodFiber");
-// const foodSodiumElement = document.querySelector(".foodSodium");
-// const foodCholesterolElement = document.querySelector(".foodCholesterol");
-// const foodPotassiumElement = document.querySelector(".foodPotassium");
-// const foodServingSizeElement = document.querySelector(".foodServingSize");
-// const foodServingUnitElement = document.querySelector(".foodServingUnit");
-// const foodBrandNameElement = document.querySelector(".foodBrandName");
-// console.log(foodData[0].calories);
-// foodNameElement.innerHTML = foodData[0].name;
-// foodCaloriesElement.innerHTML = foodData[0].calories;
-// foodFatElement.innerHTML = foodData[0].fat;
-// foodCarbohydratesElement.innerHTML = foodData[0].carbohydrates;
-// foodProteinElement.innerHTML = foodData[0].protein;
-// foodSugarElement.innerHTML = foodData[0].sugar;
-// foodFiberElement.innerHTML = foodData[0].fiber;
-// foodSodiumElement.innerHTML = foodData.items[0].sodium;
-// foodCholesterolElement.innerHTML = foodData[0].cholesterol;
-// foodPotassiumElement.innerHTML = foodData[0].potassium;
-// foodServingSizeElement.innerHTML = foodData[0].serving_size;
-// foodServingUnitElement.innerHTML = foodData[0].serving_unit;
-// foodBrandNameElement.innerHTML = foodData[0].brand_name;
