@@ -27,6 +27,10 @@ p {
     font-family: var(--font-body);
 }
 
+main {
+    background-color: var(--color-accent);
+}
+
 /* Header */
 .header-content {
     display: flex;
@@ -49,6 +53,9 @@ p {
     max-height: 40px;
     margin: 0 10px 0 10px;
 }
+
+/* footer */
+
 
 /* nav */
 
@@ -142,6 +149,29 @@ a {
     border: 2px solid var(--color-accent-two);
 }
 
+/* nutritional Info */
+
+.nutritional-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.nutritional-container > div {
+    background-color: var(--color-tertiary);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.nutritional-container > div > div {
+    margin-bottom: 5px;
+}
+
+
+
+
 /* Media Queries */
 @media(max-width:768px) {
     .hamburguer {
@@ -162,17 +192,17 @@ a {
         top: 73px;
         left:-100%;
         width: 40%;
-        height: auto;
+        height: 100%;
         flex-direction: column;
         transition: 0.6s ease-in-out;
         justify-content: start;
     }
 
     .nav-menu.active {
-        top: 73px;
+        top: 76px;
         left: 0;
         width: 40%;
-        height: auto;
+        height: 80%;
         background-color: var(--color-secondary);
         justify-content: start;
     }

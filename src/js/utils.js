@@ -36,3 +36,15 @@ export function setLocalStorage(key, value) {
     let myValue = getLocalStorage('myKey');
 
 }
+
+export function divCreator(className, parentSelector) {
+    const newDiv = document.createElement("div");
+    newDiv.classList.add(className);
+  
+    const parentDiv = document.querySelector(parentSelector);
+    parentDiv.appendChild(newDiv);
+  }
+
+export function intergrator(className, content) {
+    const el = document.querySelector(className).innerHTML = content;
+}
