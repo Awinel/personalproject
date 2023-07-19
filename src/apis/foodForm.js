@@ -13,27 +13,28 @@ export async function setupFoodForm() {
     `;
   }
 
-  const foodArray =[]
-  const ateFood = getLocalStorage("ateFood");
-
   const formContainer = document.querySelector('.foodForm');
   formContainer.innerHTML = foodForm();
 
-  const form = document.querySelector('.foodForm');
   const foodEatenDiv = await getElement('.foodEaten');
 
-  form.addEventListener('submit', function(event) {
+  let foodArray = getLocalStorage("ateFood") || [];
+  for (const food of foodArray) {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = food;
+    foodEatenDiv.appendChild(paragraph);
+  }
+
+  formContainer.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-    
-    
+
     const input = document.querySelector('#ateFood');
     const food = input.value;
     foodArray.push(food);
-
+    setLocalStorage("ateFood", foodArray);
 
     const paragraph = document.createElement('p');
     paragraph.textContent = food;
-
     foodEatenDiv.appendChild(paragraph);
 
     input.value = '';
